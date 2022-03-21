@@ -1,4 +1,4 @@
-package com.techno.CrudOperation.controller;
+package com.techno.CrudOperation.Exception;
 
 import java.util.List;
 
@@ -45,9 +45,6 @@ public ResponseEntity<?> getEmployeId(@PathVariable("id") long empId){
  return new ResponseEntity<Employee>(emp, HttpStatus.FOUND);
 	}catch (BussinessException e) {
 ControllerException ce = new ControllerException(e.getErrorode(), e.getErrorMsg());
-//EmpResponse respone = new EmpResponse();
-//respone.setStatusCode(e.getErrorode());
-//respone.setMsg(e.getErrorMsg());
 return new ResponseEntity<ControllerException>(ce, HttpStatus.BAD_REQUEST);
 	}
 	catch (ControllerException e) {
